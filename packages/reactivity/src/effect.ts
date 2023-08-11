@@ -2,7 +2,8 @@ import { isArray, isIntegerKey } from "@vue/shared";
 import { TriggerOpTypes, TrackOpTypes } from "./operators";
 
 interface EffectOptions {
-  lazy?: boolean
+  lazy?: boolean,
+  scheduler?: Function
 }
 
 let uid: number = 0;
@@ -90,5 +91,11 @@ export function trigger(target: any, type: any, key?: any, newValue?: any, oldVa
         break;
     }
   }
-  effects.forEach((effect: any) => effect())
+  effects.forEach((effect: any) => {
+    if (effect.options.scheduler) {
+      effect.options.scheduler(effect)
+    } else {
+      effect()
+    }
+  })
 }
