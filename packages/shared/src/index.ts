@@ -1,4 +1,4 @@
-
+export * from './shapeFlags'
 export const isObject = (val: any): boolean => val !== null && typeof val === 'object';
 export const extend = Object.assign;
 export const isArray = Array.isArray;

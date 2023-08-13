@@ -1,0 +1,16 @@
+{
+  "name": "@vue/runtiome-dom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "module": "dist/runtiome-dom.esm-bundler.js",
+  "author": "",
+  "license": "ISC",
+  "buildOptions": {
+    "name": "VueRuntiomeDom",
+    "formats": [
+      "esm-bundler",
+      "global"
+    ]
+  }
+}
