@@ -33,3 +33,10 @@ function normalizeChildren(vnode: any, children: any) {
 export function isVnode(value: any) {
   return value.__v_isVnode
 }
+
+export function normalizeVNode(child: any) {
+  if (isObject(child)) {
+    return child
+  }
+  return createVNode(ShapeFlags.TEXT_CHILDREN, null, String(child))
+}
